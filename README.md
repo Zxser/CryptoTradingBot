@@ -1,10 +1,4 @@
-(https://github.com/ctubio/Krypto-trading-bot/blob/master/doc/MANUAL.md#what-is-market-making) trading bots with a fully featured [web interface](https://github.com/ctubio/Krypto-trading-bot#web-ui).<br />It can place and cancel orders on one of the several [compatible exchanges](https://github.com/ctubio/Krypto-trading-bot#compatible-exchanges) in less than a few milliseconds per order on a decent machine.
-
-If you don't want to configure or hardcode your own trading strategies in your own machine,<br />you can run strategies from someone else at [kryll.io](https://kryll.io/) (or at any other trading community out there).
-
-If you don't want to run a bot at all,<br />you can fund liquidity pools at [tinyman.org](https://tinyman.org/) (or at any other defi out there).
-
-### <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png" height="64" width="64"  align="middle" /> Latest version at https://github.com/Crypto-Trade-Studio/CryptoTradingBot <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f51e.png" height="64" width="64" align="middle" /> <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4b8.png" height="64" width="64" align="middle" />
+Latest version at https://github.com/Crypto-Trade-Studio/CryptoTradingBot <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f51e.png" height="64" width="64" align="middle" /> <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4b8.png" height="64" width="64" align="middle" />
 
 [![Build Status](https://github.com/ctubio/Krypto-trading-bot/workflows/test/badge.svg)](https://github.com/ctubio/Krypto-trading-bot/actions)
 [![Coverage Status](https://img.shields.io/coveralls/ctubio/Krypto-trading-bot/master.svg)](https://coveralls.io/r/ctubio/Krypto-trading-bot?branch=master)
