@@ -1,37 +1,11 @@
-//! \file
+﻿//! \file
 //! \brief Minimal user application framework.
 
 namespace ₿ {
   static string epilogue, epitaph;
 
   //! \brief     Call all endingFn once and print a last log msg.
-  //! \param[in] reason Allows any (colorful?) string.
-  static void exit(const string &reason = "") {
-    epilogue = reason + string(!(reason.empty() or reason.back() == '.'), '.');
-    raise(SIGQUIT);
-  };
-
-  //! \brief     Call all endingFn once and print a last error log msg.
-  //! \param[in] prefix Allows any string, if possible with a length of 2.
-  //! \param[in] reason Allows any (colorful?) string.
-  static void error(const string &prefix, const string &reason) {
-    exit(prefix + ANSI_PUKE_RED + " Errrror: " + ANSI_HIGH_RED + reason);
-  };
-
-  static mutex lock;
-
-  class Rollout {
-    public:
-      Rollout() {
-        static once_flag rollout;
-        call_once(rollout, version);
-      };
-    protected:
-      static string changelog() {
-        string mods;
-        const json diff =
-#ifndef NDEBUG
-          json::object();
+  //!  json::object();
 #else
           Curl::Web::xfer(lock, "https://api.github.com/repos/ctubio/"
             "Krypto-trading-bot/compare/" K_HEAD "...HEAD");

@@ -1,4 +1,4 @@
-K         ?= K.sh
+﻿K         ?= K.sh
 MAJOR      = 0
 MINOR      = 6
 PATCH      = 6
@@ -6,35 +6,7 @@ BUILD      = 6
 
 OBLIGATORY = DISCLAIMER: This is strict non-violent software: \n$\
              if you hurt other living creatures, please stop; \n$\
-             otherwise remove all copies of the software now.
-
-PERMISSIVE = This is free software: the UI and quoting engine are open source, \n$\
-             feel free to hack both as you need.                               \n$\
-             This is non-free software: built-in gateway exchange integrations \n$\
-             are licensed by/under the law of my grandma (since last century), \n$\
-             feel free to crack all as you need.
-
-SOURCE    := $(filter-out trading-bot,$(notdir $(wildcard src/bin/*))) trading-bot
-CARCH      = x86_64-linux-gnu        \
-             arm-linux-gnueabihf     \
-             aarch64-linux-gnu       \
-             x86_64-apple-darwin20.4 \
-             x86_64-w64-mingw32
-
-CHOST     ?= $(or $(findstring $(shell test -n "`command -v g++`" && g++ -dumpmachine), \
-                $(CARCH)),$(subst build-,,$(firstword $(wildcard build-*))))
-ABI       ?= 1
-
-KHOST     := $(shell echo $(CHOST)                               \
-               | sed 's/-\([a-z_0-9]*\)-\(linux\)$$/-\2-\1/'     \
-               | sed 's/\([a-z_0-9]*\)-\([a-z_0-9]*\)-.*/\2-\1/' \
-               | sed 's/^w64/win64/'                             )
-KBUILD    := build-$(KHOST)
-KHOME     := $(if ${SYSTEMROOT},$(word 1,$(subst :, ,${SYSTEMROOT})):/,$(if \
-               $(findstring $(CHOST),$(lastword $(CARCH))),C:/,/var/lib/))K
-
-ERR        = *** K require g++ v10 or greater, but it was not found.
-HINT      := consider a symlink at /usr/bin/$(CHOST)-g++ pointing to your g++ executable
+             otherwise remove a   := consider a symlink at /usr/bin/$(CHOST)-g++ pointing to your g++ executable
 STEP       = $(shell tput setaf 2;tput setab 0)Building $(1)..$(shell tput sgr0)
 SUDO       = $(shell test -n "`command -v sudo`" && echo sudo)
 

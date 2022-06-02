@@ -23,28 +23,7 @@ namespace tribeca {
   enum class APR: unsigned int {
     Off, Size, SizeWidth
   };
-  enum class SideAPR: unsigned int {
-    Off, Buy, Sell
-  };
-  enum class SOP: unsigned int {
-    Off, Trades, Size, TradesSize
-  };
-  enum class STDEV: unsigned int {
-    Off, OnFV, OnFVAPROff, OnTops, OnTopsAPROff, OnTop, OnTopAPROff
-  };
-  enum class PingAt: unsigned int {
-    BothSides,    BidSide,         AskSide,
-    DepletedSide, DepletedBidSide, DepletedAskSide,
-    StopPings
-  };
-  enum class PongAt: unsigned int {
-    ShortPingFair,       AveragePingFair,       LongPingFair,
-    ShortPingAggressive, AveragePingAggressive, LongPingAggressive
-  };
-
-  struct QuotingParams: public Sqlite::StructBackup<QuotingParams>,
-                        public Client::Broadcast<QuotingParams>,
-                        public Client::Clickable {
+  {
     Price            widthPing                       = 300.0;
     double           widthPingPercentage             = 0.25;
     Price            widthPong                       = 300.0;

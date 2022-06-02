@@ -9,26 +9,7 @@ SCENARIO_METHOD(TradingBot, "ANY BTC/EUR") {
   gateway->decimal.price.precision(gateway->tickPrice);
   gateway->decimal.amount.precision(gateway->tickSize);
   GIVEN("MarketLevels") {
-    WHEN("defaults") {
-      THEN("fair value") {
-        REQUIRE_FALSE(engine.levels.fairValue);
-        REQUIRE_NOTHROW(engine.levels.fairPrice.read = [&]() {
-          REQUIRE(engine.levels.fairPrice.blob().dump() == "{\"price\":0.0}");
-        });
-        REQUIRE_FALSE(engine.levels.ready());
-        REQUIRE_FALSE(engine.levels.fairValue);
-      }
-    }
-    WHEN("assigned") {
-      for (Order *const it : engine.orders.open())
-        engine.orders.purge(it);
-      REQUIRE_NOTHROW(engine.levels.diff.read = [&]() {
-        REQUIRE(engine.levels.diff.blob().dump() == "{"
-          "\"asks\":[{\"price\":1234.6,\"size\":1.23456789},{\"price\":1234.69,\"size\":0.11234569}],"
-          "\"bids\":[{\"price\":1234.5,\"size\":0.12345678},{\"price\":1234.55,\"size\":0.01234567}]"
-        "}");
-      });
-      REQUIRE_NOTHROW(engine.levels.fairPrice.read = [&]() {
+    WHEN("defaults") (engine.levels.fairPrice.read = [&]() {
         REQUIRE(engine.levels.fairPrice.blob().dump() == "{\"price\":1234.55}");
       });
       REQUIRE_NOTHROW(engine.qp.fvModel = tribeca::FairValueModel::BBO);

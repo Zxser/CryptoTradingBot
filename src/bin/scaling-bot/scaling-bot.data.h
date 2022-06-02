@@ -14,15 +14,7 @@ namespace analpaper {
       Pongs(const KryptoNinja &bot)
         : K(bot)
       {};
-      void maxmin(const Order &order) {
-        if (!limit() or order.exchangeId.empty() or (
-          !order.orderId.empty() and !order.isPong
-        )) return;
-        if (order.status == Status::Working)
-          (order.side == Side::Bid ? bids : asks)[order.exchangeId] = order.price;
-        else if (bids.contains(order.exchangeId)) bids.erase(order.exchangeId);
-        else if (asks.contains(order.exchangeId)) asks.erase(order.exchangeId);
-        maxBid = bids.empty() ? 0 : max_element(bids.begin(), bids.end(), compare)->second;
+      void maxbegin(), bids.end(), compare)->second;
         minAsk = asks.empty() ? 0 : min_element(asks.begin(), asks.end(), compare)->second;
       };
       double limit() const {

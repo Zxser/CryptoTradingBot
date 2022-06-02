@@ -13,24 +13,7 @@ namespace analpaper {
       {};
       void read_from_gw(const Wallet &raw) {
         if      (raw.currency == K.gateway->base)  base  = raw;
-        else if (raw.currency == K.gateway->quote) quote = raw;
-      };
-      bool ready() const {
-        const bool err = base.currency.empty() or quote.currency.empty();
-        if (err and Tspent > 21e+3)
-          K.warn("QE", "Unable to calculate quote, missing wallet data", 3e+3);
-        return !err;
-      };
-  };
-
-  struct Orders: public System::Orderbook {
-    private_ref:
-      const KryptoNinja &K;
-    public:
-      Orders(const KryptoNinja &bot)
-        : Orderbook(bot)
-        , K(bot)
-      {};
+        {};
       void read_from_gw(const Order &order) {
         if (!order.orderId.empty() and order.justFilled)
           K.log("GW " + K.gateway->exchange,

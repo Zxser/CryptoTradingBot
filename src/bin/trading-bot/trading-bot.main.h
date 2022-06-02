@@ -1,4 +1,4 @@
-class TradingBot: public KryptoNinja {
+﻿class TradingBot: public KryptoNinja {
   public:
     tribeca::Engine engine;
   public:
@@ -18,13 +18,7 @@ class TradingBot: public KryptoNinja {
       arguments = {
         {
           {"maker-fee",    "AMOUNT", "0",     "set custom percentage of maker fee, like '0.1'"},
-          {"taker-fee",    "AMOUNT", "0",     "set custom percentage of taker fee, like '0.1'"},
-          {"min-size",     "AMOUNT", "0",     "set custom minimum order size, like '0.01'"},
-          {"leverage",     "AMOUNT", "1",     "set between '0.01' and '100' to enable isolated margin,"
-                                              ANSI_NEW_LINE "or use '0' for cross margin; default AMOUNT is '1'"},
-          {"wallet-limit", "AMOUNT", "0",     "set AMOUNT in base currency to limit the balance,"
-                                              ANSI_NEW_LINE "otherwise the full available balance can be used"}
-        }
+               }
       };
     };
   private:
